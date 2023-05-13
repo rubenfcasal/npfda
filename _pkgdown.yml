@@ -1,0 +1,9 @@
+url: https://rubenfcasal.github.io/npfda
+
+template:
+  params:
+    bootswatch: cerulean
+
+news:
+  cran_dates: false
+
