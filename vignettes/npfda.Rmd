@@ -41,7 +41,7 @@ plot(fd, y = as.numeric(fd$ynames),
      col = hcl.colors(32, palette = "Blue-Red 3", alpha = 0.6))
 ```
 
-For example, continuing with the exploratory graphical analysis, we can plot the functional mean of the sample and this mean plus and minus one sample standard deviation as a reference of the variability of the data:
+For example, continuing with the exploratory graphical analysis, we can plot the functional sample mean and this mean plus and minus one sample standard deviation as a reference of the variability of the data:
 
 ```{r }
 plot(fd, col = "lightgray", legend = FALSE)
@@ -84,14 +84,13 @@ Traditional bandwidth selectors, such as cross validation (CV) or generalized cr
 By default the modified cross-validation criteria (MCV; Chu and Marron, 1991) is used, by ignoring observations in a neighborhood $N(j)$ around $t_j$. 
 Note that the ordinary CV approach is a particular case with $N(j)=\left\lbrace t_{j} \right\rbrace$.
 
-For instance (implicitly assuming ):
+In this case, the default bandwidth:
 ```{r }
 # bin <- npf.binning(fd)
 trend.h.cv <- h.cv(bin)$h
 trend.h.cv
 ```
-
-Nevertheless, as independence and homoscedasticity was implicitly assumed, the selected bandwidth seems to undersmooth the data:
+seems to undersmooth the data (since independence and homoscedasticity was implicitly assumed):
 ```{r }
 # Linear Local trend estimates
 lp.cv <- locpol(bin, h = trend.h.cv)
@@ -109,7 +108,7 @@ Nevertheless, the modeling of the dependence structure is previously required to
 
 # Variance estimation
 
-The linear Local variance estimates can be computed using the `np.var()` generic function:
+The linear local variance estimates can be computed using the `np.var()` generic function:
 ```{r}
 var.h <- 33
 lp.var <- np.var(lp, h = var.h)
@@ -121,12 +120,14 @@ lines(x, y)
 matlines(x, y + sqrt(lp.var$est) %o% c(-1, 1), col = 1, lty = 2)
 ```
 
-The bandwidth can also be selected using the `h.cv()` function (assuming independence in this case):
+The bandwidth can also be selected using the `h.cv()` function:
 ```{r}
 bin.res2 <- npf.bin.res2(lp)
 var.h.cv <- h.cv(bin.res2)$h
-# the selected bandwidth undersmoothes the squared residuals...
 var.h.cv
+```
+Nevertheless, as the default method assumes independence, the selected bandwidth undersmoothes the squared residuals:
+```{r}
 # Linear Local variance estimate
 lp.cv.var <- np.var(lp, h = var.h.cv)
 # Plot data + estimated trend -+ estimated std. dev.

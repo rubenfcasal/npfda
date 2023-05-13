@@ -59,8 +59,9 @@ matlines(x, y + sqrt(lp.var$est) %o% c(-1, 1), col = 1, lty = 2)
 ## -----------------------------------------------------------------------------
 bin.res2 <- npf.bin.res2(lp)
 var.h.cv <- h.cv(bin.res2)$h
-# the selected bandwidth undersmoothes the squared residuals...
 var.h.cv
+
+## -----------------------------------------------------------------------------
 # Linear Local variance estimate
 lp.cv.var <- np.var(lp, h = var.h.cv)
 # Plot data + estimated trend -+ estimated std. dev.

@@ -27,7 +27,7 @@ Description: This package implements nonparametric methods for inference
     on (multidimensional) functional data using the tools available in package 
     npsp <https://rubenfcasal.github.io/npsp>.
 License: GPL (>= 2)
-URL: https://github.com/rubenfcasal/npfda
+URL: https://rubenfcasal.github.io/npfda, https://github.com/rubenfcasal/npfda
 BugReports: https://github.com/rubenfcasal/npfda/issues
 Encoding: UTF-8
 LazyData: true
