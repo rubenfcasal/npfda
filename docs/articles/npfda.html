@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">npfda</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.4</span>
       </span>
     </div>
 
@@ -73,7 +73,7 @@
                         <h4 data-toc-skip class="author">Ruben
 Fernandez-Casal (<a href="mailto:ruben.fcasal@udc.es" class="email">ruben.fcasal@udc.es</a>)</h4>
             
-            <h4 data-toc-skip class="date">npfda 0.1.3</h4>
+            <h4 data-toc-skip class="date">npfda 0.1.4</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/rubenfcasal/npfda/blob/HEAD/vignettes/npfda.Rmd" class="external-link"><code>vignettes/npfda.Rmd</code></a></small>
       <div class="hidden name"><code>npfda.Rmd</code></div>
@@ -99,7 +99,7 @@ arise when using parametric models.</p>
 <span><span class="co">##  Type `help(npsp)` for an overview of the package or</span></span>
 <span><span class="co">##  visit https://rubenfcasal.github.io/npsp.</span></span></code></pre>
 <pre><code><span><span class="co">##  npfda: Nonparametric functional data analysis,</span></span>
-<span><span class="co">##  version 0.1.3 (built on 2023-05-12).</span></span></code></pre>
+<span><span class="co">##  version 0.1.4 (built on 2023-05-15).</span></span></code></pre>
 <p>The <code>ozone</code> data set, supplied with the <code>npfda</code>
 package, will be used in the examples in this document. The data consist
 of daily averages of ozone concentration (microgram per cubic meter)
@@ -196,11 +196,7 @@ required to use this approach in practice.
 <code class="sourceCode R"><span><span class="va">var.h</span> <span class="op">&lt;-</span> <span class="fl">33</span></span>
 <span><span class="va">lp.var</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/np.var.html">np.var</a></span><span class="op">(</span><span class="va">lp</span>, h <span class="op">=</span> <span class="va">var.h</span><span class="op">)</span></span>
 <span><span class="co"># Plot data + estimated trend -+ estimated std. dev.</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">lp</span><span class="op">$</span><span class="va">data</span>, col <span class="op">=</span> <span class="st">"lightgray"</span>, legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">lp</span><span class="op">$</span><span class="va">data</span><span class="op">$</span><span class="va">x</span></span>
-<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="va">lp</span><span class="op">$</span><span class="va">est</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/matplot.html" class="external-link">matlines</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="va">lp.var</span><span class="op">$</span><span class="va">est</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/outer.html" class="external-link">%o%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span>, col <span class="op">=</span> <span class="fl">1</span>, lty <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">lp</span>, <span class="va">lp.var</span><span class="op">)</span></span></code></pre></div>
 <p><img src="npfda_files/figure-html/unnamed-chunk-8-1.png" width="100%" style="display: block; margin: auto;"></p>
 <p>The bandwidth can also be selected using the <code><a href="http://rubenfcasal.github.io/npsp/reference/h.cv.html" class="external-link">h.cv()</a></code>
 function:</p>
@@ -216,11 +212,7 @@ selected bandwidth undersmoothes the squared residuals:</p>
 <code class="sourceCode R"><span><span class="co"># Linear Local variance estimate</span></span>
 <span><span class="va">lp.cv.var</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/np.var.html">np.var</a></span><span class="op">(</span><span class="va">lp</span>, h <span class="op">=</span> <span class="va">var.h.cv</span><span class="op">)</span></span>
 <span><span class="co"># Plot data + estimated trend -+ estimated std. dev.</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">lp</span><span class="op">$</span><span class="va">data</span>, col <span class="op">=</span> <span class="st">"lightgray"</span>, legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">lp</span><span class="op">$</span><span class="va">data</span><span class="op">$</span><span class="va">x</span></span>
-<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="va">lp</span><span class="op">$</span><span class="va">est</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/matplot.html" class="external-link">matlines</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="va">lp.cv.var</span><span class="op">$</span><span class="va">est</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/outer.html" class="external-link">%o%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span>, col <span class="op">=</span> <span class="fl">1</span>, lty <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">lp</span>, <span class="va">lp.cv.var</span><span class="op">)</span></span></code></pre></div>
 <p><img src="npfda_files/figure-html/unnamed-chunk-10-1.png" width="100%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level2">
@@ -237,12 +229,12 @@ the sample semivariances, the resulting bandwidth should be increased to
 avoid under-smoothing the variogram estimates.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bin.svar</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://rubenfcasal.github.io/npsp/reference/svar.bin.html" class="external-link">svar.bin</a></span><span class="op">(</span><span class="va">lp</span>, <span class="va">lp.var</span>, maxlag <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span>
-<span><span class="va">h.svar</span> <span class="op">&lt;-</span> <span class="fl">1.5</span><span class="op">*</span><span class="fu"><a href="http://rubenfcasal.github.io/npsp/reference/h.cv.html" class="external-link">h.cv</a></span><span class="op">(</span><span class="va">bin.svar</span><span class="op">)</span><span class="op">$</span><span class="va">h</span></span>
-<span><span class="va">h.svar</span></span></code></pre></div>
+<span><span class="va">svar.h</span> <span class="op">&lt;-</span> <span class="fl">1.5</span><span class="op">*</span><span class="fu"><a href="http://rubenfcasal.github.io/npsp/reference/h.cv.html" class="external-link">h.cv</a></span><span class="op">(</span><span class="va">bin.svar</span><span class="op">)</span><span class="op">$</span><span class="va">h</span></span>
+<span><span class="va">svar.h</span></span></code></pre></div>
 <pre><code><span><span class="co">##          [,1]</span></span>
 <span><span class="co">## [1,] 3.712871</span></span></code></pre>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">svar.np</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://rubenfcasal.github.io/npsp/reference/np.svar.html" class="external-link">np.svar</a></span><span class="op">(</span><span class="va">bin.svar</span>, h <span class="op">=</span> <span class="va">h.svar</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">svar.np</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://rubenfcasal.github.io/npsp/reference/np.svar.html" class="external-link">np.svar</a></span><span class="op">(</span><span class="va">bin.svar</span>, h <span class="op">=</span> <span class="va">svar.h</span><span class="op">)</span></span>
 <span><span class="co"># plot(svar.np)</span></span></code></pre></div>
 <p>A valid variogram estimate is obtained by fitting a “nonparametric”
 isotropic Shapiro-Botha variogram model (Shapiro and Botha, 1991), to
@@ -273,37 +265,59 @@ their convergence values, a new selection of the bandwidth for the trend
 estimation:</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Estimated correlation matrix</span></span>
-<span><span class="va">corr.est</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://rubenfcasal.github.io/npsp/reference/varcov.html" class="external-link">varcov</a></span><span class="op">(</span><span class="va">svm</span>, <span class="va">lp</span><span class="op">$</span><span class="va">data</span><span class="op">$</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="va">cor.est</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://rubenfcasal.github.io/npsp/reference/varcov.html" class="external-link">varcov</a></span><span class="op">(</span><span class="va">svm</span>, <span class="va">lp</span><span class="op">$</span><span class="va">data</span><span class="op">$</span><span class="va">x</span><span class="op">)</span></span>
 <span><span class="co"># Trend bandwidth selection (under heteroscedasticity and dependence)</span></span>
-<span><span class="va">trend.h.new</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://rubenfcasal.github.io/npsp/reference/h.cv.html" class="external-link">h.cv</a></span><span class="op">(</span><span class="va">bin</span>, <span class="va">lp.var</span>, cor <span class="op">=</span> <span class="va">corr.est</span><span class="op">)</span><span class="op">$</span><span class="va">h</span></span>
+<span><span class="va">trend.h.new</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://rubenfcasal.github.io/npsp/reference/h.cv.html" class="external-link">h.cv</a></span><span class="op">(</span><span class="va">bin</span>, <span class="va">lp.var</span>, cor <span class="op">=</span> <span class="va">cor.est</span><span class="op">)</span><span class="op">$</span><span class="va">h</span></span>
 <span><span class="va">trend.h.new</span></span></code></pre></div>
 <pre><code><span><span class="co">##          [,1]</span></span>
 <span><span class="co">## [1,] 36.37871</span></span></code></pre>
 <p>results in a value almost the same as the initial one:</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">error.h.trend</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="va">trend.h</span><span class="op">/</span><span class="va">trend.h.new</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">error.h.trend</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 0.01041033</span></span></code></pre>
+<code class="sourceCode R"><span><span class="va">error.trend.h</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="va">trend.h</span><span class="op">/</span><span class="va">trend.h.new</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="va">error.trend.h</span></span></code></pre></div>
+<pre><code><span><span class="co">##            [,1]</span></span>
+<span><span class="co">## [1,] 0.01041033</span></span></code></pre>
 <p>and the same happens for the variance estimation:</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Variance bandwidth selection (under heteroscedasticity and dependence)</span></span>
-<span><span class="va">var.h.new</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://rubenfcasal.github.io/npsp/reference/h.cv.html" class="external-link">h.cv</a></span><span class="op">(</span><span class="va">bin.res2</span>, <span class="va">lp.var</span>, cor <span class="op">=</span> <span class="va">corr.est</span><span class="op">)</span><span class="op">$</span><span class="va">h</span></span>
+<span><span class="va">var.h.new</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://rubenfcasal.github.io/npsp/reference/h.cv.html" class="external-link">h.cv</a></span><span class="op">(</span><span class="va">bin.res2</span>, <span class="va">lp.var</span>, cor <span class="op">=</span> <span class="va">cor.est</span><span class="op">)</span><span class="op">$</span><span class="va">h</span></span>
 <span><span class="va">var.h.new</span></span></code></pre></div>
 <pre><code><span><span class="co">##          [,1]</span></span>
 <span><span class="co">## [1,] 33.85016</span></span></code></pre>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">error.var.h</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="va">var.h</span><span class="op">/</span><span class="va">var.h.new</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">error.var.h</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="va">var.h</span><span class="op">/</span><span class="va">var.h.new</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">error.var.h</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 0.02511527</span></span></code></pre>
+<pre><code><span><span class="co">##            [,1]</span></span>
+<span><span class="co">## [1,] 0.02511527</span></span></code></pre>
 <p>Therefore, it would not be necessary to iterate and we can consider
 the previous estimates to be the definitive ones.</p>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">np.fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/npf.model.html">npf.model</a></span><span class="op">(</span><span class="va">lp</span>, <span class="va">lp.var</span>, <span class="va">svm</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="nonparametric-model">Nonparametric model<a class="anchor" aria-label="anchor" href="#nonparametric-model"></a>
+<h2 id="automatic-modeling">Automatic modeling<a class="anchor" aria-label="anchor" href="#automatic-modeling"></a>
 </h2>
-<p><strong><em>Work in progress…</em></strong></p>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">np.fit</span> <span class="op">&lt;-</span> <span class="fu">npf.model</span><span class="op">(</span><span class="va">lp</span>, <span class="va">lp.var</span>, <span class="va">svm</span><span class="op">)</span></span></code></pre></div>
+<p>The iterative procedure for the joint estimation of the trend, the
+variance and the semivariogram is implemented in <code><a href="../reference/npf.fit.html">npf.fit()</a></code>
+function:</p>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">np.fit2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/npf.fit.html">npf.fit</a></span><span class="op">(</span><span class="va">fd</span>, var.h <span class="op">=</span> <span class="fl">30</span>, maxlag <span class="op">=</span> <span class="fl">100</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## </span></span>
+<span><span class="co">## Iteration: 0 </span></span>
+<span><span class="co">## Trend bandwidth: 9.894684 </span></span>
+<span><span class="co">## Variance bandwidth: 30 </span></span>
+<span><span class="co">## Semivariogram bandwidth: 3.712871 </span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## Iteration: 1 </span></span>
+<span><span class="co">## Trend bandwidth: 36.07592 , Error: 0.7257261 </span></span>
+<span><span class="co">## Variance bandwidth: 32.84395 , Error: 0.08658973 </span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## Iteration: 2 </span></span>
+<span><span class="co">## Trend bandwidth: 36.07668 , Error: 2.090298e-05 </span></span>
+<span><span class="co">## Variance bandwidth: 33.10639 , Error: 0.007927348</span></span></code></pre>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">np.fit2</span><span class="op">)</span></span></code></pre></div>
+<p><img src="npfda_files/figure-html/unnamed-chunk-17-1.png" width="100%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>

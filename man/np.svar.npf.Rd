@@ -60,7 +60,7 @@ in this setting. See "Details" below.}
 theoretical) variances.}
 }
 \value{
-Returns an object of S3 class \code{\link[npsp:svar.bin]{npsp::svar.bin}}.
+Returns an object of S3 class \code{\link[npsp:np.svar]{npsp::np.svar}}.
 }
 \description{
 Creates a \code{svar.bin} (binned semivar. + grid parameters) object with
@@ -68,7 +68,9 @@ the binned intra-curves semivariances (i.e. computes a binned sample variogram).
 }
 \details{
 Only one of the arguments \code{maxlag} or \code{nlags} must be specified.
+
+See \code{\link[npsp:np.svar]{npsp::np.svar}} for more details.
 }
 \seealso{
-\code{\link[npsp:svar.bin]{npsp::svar.bin}}
+\code{\link[npsp:np.svar]{npsp::np.svar}}, \code{\link{svar.bin.npf.data}}, \code{\link{svar.bin.npf.locpol}}
 }

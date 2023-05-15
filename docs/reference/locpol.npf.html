@@ -18,7 +18,7 @@ using local polynomial kernel smoothing."><!-- mathjax --><script src="https://c
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">npfda</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.4</span>
       </span>
     </div>
 
@@ -49,7 +49,7 @@ using local polynomial kernel smoothing."><!-- mathjax --><script src="https://c
     <div class="page-header">
     <h1>Local polynomial trend estimation</h1>
     <small class="dont-index">Source: <a href="https://github.com/rubenfcasal/npfda/blob/HEAD/R/locpol.npf.R" class="external-link"><code>R/locpol.npf.R</code></a></small>
-    <div class="hidden name"><code>locpol.npf.data.Rd</code></div>
+    <div class="hidden name"><code>locpol.npf.Rd</code></div>
     </div>
 
     <div class="ref-description">
@@ -81,7 +81,20 @@ using local polynomial kernel smoothing.</p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for npf.locpol</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">object</span>, newx <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">object</span>, newx <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for npf.locpol</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html" class="external-link">residuals</a></span><span class="op">(</span><span class="va">object</span>, <span class="va">var</span>, as.npf.data <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for npf.locpol</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  y <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  main <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/deparse.html" class="external-link">deparse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substitute.html" class="external-link">substitute</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  col <span class="op">=</span> <span class="st">"lightgray"</span>,</span>
+<span>  legend <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -114,7 +127,7 @@ in this setting. See "Details" below.</p></dd>
 
 
 <dt>...</dt>
-<dd><p>further arguments passed to or from other methods.</p></dd>
+<dd><p>additional graphical parameters (passed to <code><a href="plot.npf.data.html">plot.npf.data</a></code>).</p></dd>
 
 
 <dt>object</dt>
@@ -123,6 +136,37 @@ in this setting. See "Details" below.</p></dd>
 
 <dt>newx</dt>
 <dd><p>vector with the (irregular) points to predict (interpolate).</p></dd>
+
+
+<dt>var</dt>
+<dd><p>(optional) a vector or an object of class <code><a href="np.var.html">npf.var</a></code> with the estimated (or
+theoretical) variances.</p></dd>
+
+
+<dt>as.npf.data</dt>
+<dd><p>logical; if <code>TRUE</code> (default) returns a <code>npf.data</code>-class
+object containing the residuals.</p></dd>
+
+
+<dt>y</dt>
+<dd><p>(optional) a vector or an object of class <code><a href="np.var.html">npf.var</a></code> with the estimated (or
+theoretical) variances.</p></dd>
+
+
+<dt>main</dt>
+<dd><p>plot title.</p></dd>
+
+
+<dt>col</dt>
+<dd><p>color table used to set up the color scale (see <code><a href="https://rdrr.io/r/graphics/image.html" class="external-link">image</a></code> for
+details).</p></dd>
+
+
+<dt>legend</dt>
+<dd><p>logical; if <code>TRUE</code> (default), the plotting region is splitted into two parts,
+drawing the main plot in one and the legend with the color scale in the other.
+If <code>FALSE</code> only the (coloured) main plot is drawn and the arguments related
+to the legend are ignored (<code><a href="http://rubenfcasal.github.io/npsp/reference/splot.html" class="external-link">npsp::splot()</a></code> is not called).</p></dd>
 
 </dl></div>
     <div id="value">
@@ -136,6 +180,12 @@ in this setting. See "Details" below.</p></dd>
 <p>If <code>newx == NULL</code>, <code>predict.npf.locpol</code> returns the trend estimates
 corresponding to the discretization points
 (otherwise <code><a href="http://rubenfcasal.github.io/npsp/reference/interp.html" class="external-link">npsp::interp.data.grid</a></code> is called).</p>
+
+
+<p><code>residuals.npf.locpol</code> returns the residuals, standardized if <code>var</code></p>
+
+
+<p>is not missing, and as a <code>npf.data</code>-class object if <code>as.npf.data = TRUE</code>.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -151,7 +201,7 @@ corresponding to the discretization points
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">fd</span>, col <span class="op">=</span> <span class="st">"lightgray"</span>, legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">lp</span><span class="op">$</span><span class="va">data</span><span class="op">$</span><span class="va">x</span>, <span class="va">lp</span><span class="op">$</span><span class="va">biny</span>, lty <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="co"># x = coords(fd)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">lp</span><span class="op">$</span><span class="va">data</span><span class="op">$</span><span class="va">x</span>, <span class="va">lp</span><span class="op">$</span><span class="va">est</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="locpol.npf.data-1.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="locpol.npf-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="co"># Bandwidth selection</span></span></span>
 <span class="r-in"><span><span class="co"># (assuming independence and homoscedasticity)</span></span></span>
 <span class="r-in"><span><span class="va">bin</span> <span class="op">&lt;-</span> <span class="fu"><a href="npf.binning.html">npf.binning</a></span><span class="op">(</span><span class="va">fd</span><span class="op">)</span> <span class="co"># binning</span></span></span>
@@ -167,7 +217,7 @@ corresponding to the discretization points
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">fd</span>, col <span class="op">=</span> <span class="st">"lightgray"</span>, legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">lp</span><span class="op">$</span><span class="va">data</span><span class="op">$</span><span class="va">x</span>, <span class="va">lp</span><span class="op">$</span><span class="va">biny</span>, lty <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">lp</span><span class="op">$</span><span class="va">data</span><span class="op">$</span><span class="va">x</span>, <span class="va">lp</span><span class="op">$</span><span class="va">est</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="locpol.npf.data-2.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="locpol.npf-2.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>
   </div>

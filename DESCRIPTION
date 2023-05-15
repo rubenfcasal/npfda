@@ -1,8 +1,8 @@
 Package: npfda
 Type: Package
 Title: Nonparametric functional data analysis
-Version: 0.1.3
-Date: 2023-05-12
+Version: 0.1.4
+Date: 2023-05-15
 Authors@R: c(
     person("Ruben", "Fernandez-Casal", , "rubenfcasal@gmail.com", 
     role = c("aut", "cre"), comment = c(ORCID = "0000-0002-5785-3739")),

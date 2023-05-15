@@ -7,3 +7,5 @@ template:
 news:
   cran_dates: false
 
+deploy:
+  install_metadata: true

@@ -13,6 +13,7 @@ file.create('docs/.nojekyll')
 # Avoid problems with "Onedrive - Universidade da Coruña" 
 # devtools::check(getwd()) 
 # pkgdown::build_site()
+library(npfda)
 ```
 
 # npfda: Nonparametric functional data analysis
@@ -35,7 +36,7 @@ if ('github_document' == rmarkdown::all_output_formats(knitr::current_input()) &
 Nonparametric methods for inference on the functional trend, the functional variance 
 and the variogram:
 
-*  `npf.fit()` (NOT YET IMPLEMENTED) (automatically) fits a nonparametric functional model 
+*  `npf.fit()` (automatically) fits a nonparametric functional model 
     by estimating the trend, the conditional variance and the variogram.
 
 *  `locpol()`, `np.var()` and `np.svar()` methods use local polynomial kernel 

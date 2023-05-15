@@ -31,7 +31,7 @@
     <loc>https://rubenfcasal.github.io/npfda/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://rubenfcasal.github.io/npfda/reference/locpol.npf.data.html</loc>
+    <loc>https://rubenfcasal.github.io/npfda/reference/locpol.npf.html</loc>
   </url>
   <url>
     <loc>https://rubenfcasal.github.io/npfda/reference/np.svar.npf.html</loc>
@@ -49,7 +49,10 @@
     <loc>https://rubenfcasal.github.io/npfda/reference/npf.data.html</loc>
   </url>
   <url>
-    <loc>https://rubenfcasal.github.io/npfda/reference/npf.var.html</loc>
+    <loc>https://rubenfcasal.github.io/npfda/reference/npf.fit.html</loc>
+  </url>
+  <url>
+    <loc>https://rubenfcasal.github.io/npfda/reference/npf.model.html</loc>
   </url>
   <url>
     <loc>https://rubenfcasal.github.io/npfda/reference/npfda-internals.html</loc>

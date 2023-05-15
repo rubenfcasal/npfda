@@ -14,7 +14,7 @@
 #' into the regular grid of discretization points,
 #' i.e. computes the functional residual variance (using \eqn{n} as
 #' denominator) and the sample size.
-#' @aliases npf.bin.res2-class
+#' @aliases npf.bin.res2-class npf.bin.res2
 #' @param x local polynomial fit ([`npf.locpol`]-[`class`] object).
 #' @return Returns an S3 object of class `npf.bin.res2` extending
 #' [`npsp::bin.data`] (bin data + grid par.).

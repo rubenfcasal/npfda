@@ -58,7 +58,7 @@ h.cv.npf.bin.res2 <- function(bin, var, cor, ...) {
   if(!missing(var)) {
     if(inherits(var, "npf.var")) var <- var$est
   } else{
-    var <- 1
+    var <- bin$biny
   }
   if(!missing(cor)) {
     p <- (d <- dim(cor))[1L]

@@ -30,7 +30,9 @@
 #'
 #' `svar.bin.npf.data` assumes a stationary functional process (the functional mean and
 #' functional variance are constants).
-#' @seealso [`npsp::svar.bin`]
+#'
+#' See [`npsp::svar.bin`] for more details.
+#' @seealso [`npsp::svar.bin`], [`np.svar.npf.data`], [`np.svar.npf.locpol`]
 #' @method svar.bin npf.data
 #' @export
 #····································································
@@ -73,12 +75,13 @@ svar.bin.npf.locpol <- function(x, var, maxlag = NULL, nlags, minlag,
 # svar.bin.npf.locpol <- function(x, maxlag = NULL, nlags = round(0.55 * x$grid$n),
 #                                   minlag = x$grid$lag, estimator = c("classical", "modulus"), ...) {
 #····································································
-  y <- x$data
-  y$y <- x$data$y - x$est
-  if(!missing(var)){
-    if(inherits(var, "npf.var")) var <- var$est
-    y$y <- y$y/sqrt(var)
-  }
+  # y <- x$data
+  # y$y <- x$data$y - x$est
+  # if(!missing(var)){
+  #   if(inherits(var, "npf.var")) var <- var$est
+  #   y$y <- y$y/sqrt(var)
+  # }
+  y <- residuals.npf.locpol(x, var, as.npf.data = TRUE)
   result <- svar.bin.npf.data(y, maxlag = maxlag, nlags = nlags, estimator = estimator, ...)
   return(result)
 }
@@ -94,10 +97,12 @@ svar.bin.npf.locpol <- function(x, var, maxlag = NULL, nlags, minlag,
 #' @rdname np.svar.npf
 #' @inheritParams svar.bin.npf.data
 #' @inheritParams locpol.npf.data
-#' @return Returns an object of S3 class [`npsp::svar.bin`].
+#' @return Returns an object of S3 class [`npsp::np.svar`].
 #' @details
 #' Only one of the arguments \code{maxlag} or \code{nlags} must be specified.
-#' @seealso [`npsp::svar.bin`]
+#'
+#' See [`npsp::np.svar`] for more details.
+#' @seealso [`npsp::np.svar`], [`svar.bin.npf.data`], [`svar.bin.npf.locpol`]
 #' @method np.svar npf.data
 #' @export
 #····································································

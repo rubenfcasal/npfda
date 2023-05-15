@@ -50,11 +50,7 @@ with(lp.cv, {
 var.h <- 33
 lp.var <- np.var(lp, h = var.h)
 # Plot data + estimated trend -+ estimated std. dev.
-plot(lp$data, col = "lightgray", legend = FALSE)
-x <- lp$data$x
-y <- lp$est
-lines(x, y)
-matlines(x, y + sqrt(lp.var$est) %o% c(-1, 1), col = 1, lty = 2)
+plot(lp, lp.var)
 
 ## -----------------------------------------------------------------------------
 bin.res2 <- npf.bin.res2(lp)
@@ -65,17 +61,13 @@ var.h.cv
 # Linear Local variance estimate
 lp.cv.var <- np.var(lp, h = var.h.cv)
 # Plot data + estimated trend -+ estimated std. dev.
-plot(lp$data, col = "lightgray", legend = FALSE)
-x <- lp$data$x
-y <- lp$est
-lines(x, y)
-matlines(x, y + sqrt(lp.cv.var$est) %o% c(-1, 1), col = 1, lty = 2)
+plot(lp, lp.cv.var)
 
 ## -----------------------------------------------------------------------------
 bin.svar <- svar.bin(lp, lp.var, maxlag = 100)
-h.svar <- 1.5*h.cv(bin.svar)$h
-h.svar
-svar.np <- np.svar(bin.svar, h = h.svar)
+svar.h <- 1.5*h.cv(bin.svar)$h
+svar.h
+svar.np <- np.svar(bin.svar, h = svar.h)
 # plot(svar.np)
 
 ## -----------------------------------------------------------------------------
@@ -84,22 +76,26 @@ plot(svm)
 
 ## -----------------------------------------------------------------------------
 # Estimated correlation matrix
-corr.est <- varcov(svm, lp$data$x)
+cor.est <- varcov(svm, lp$data$x)
 # Trend bandwidth selection (under heteroscedasticity and dependence)
-trend.h.new <- h.cv(bin, lp.var, cor = corr.est)$h
+trend.h.new <- h.cv(bin, lp.var, cor = cor.est)$h
 trend.h.new
 
 ## -----------------------------------------------------------------------------
-error.h.trend <- mean(abs(trend.h/trend.h.new - 1))
-error.h.trend
+error.trend.h <- abs(trend.h/trend.h.new - 1)
+error.trend.h
 
 ## -----------------------------------------------------------------------------
 # Variance bandwidth selection (under heteroscedasticity and dependence)
-var.h.new <- h.cv(bin.res2, lp.var, cor = corr.est)$h
+var.h.new <- h.cv(bin.res2, lp.var, cor = cor.est)$h
 var.h.new
-error.var.h <- mean(abs(var.h/var.h.new - 1))
+error.var.h <- abs(var.h/var.h.new - 1)
 error.var.h
 
-## ----eval=FALSE---------------------------------------------------------------
-#  np.fit <- npf.model(lp, lp.var, svm)
+## -----------------------------------------------------------------------------
+np.fit <- npf.model(lp, lp.var, svm)
+
+## -----------------------------------------------------------------------------
+np.fit2 <- npf.fit(fd, var.h = 30, maxlag = 100, verbose = TRUE)
+plot(np.fit2)
 

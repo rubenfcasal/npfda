@@ -54,7 +54,9 @@ Only one of the arguments \code{maxlag} or \code{nlags} must be specified.
 
 \code{svar.bin.npf.data} assumes a stationary functional process (the functional mean and
 functional variance are constants).
+
+See \code{\link[npsp:svar.bin]{npsp::svar.bin}} for more details.
 }
 \seealso{
-\code{\link[npsp:svar.bin]{npsp::svar.bin}}
+\code{\link[npsp:svar.bin]{npsp::svar.bin}}, \code{\link{np.svar.npf.data}}, \code{\link{np.svar.npf.locpol}}
 }

@@ -6,7 +6,7 @@ Please edit that file
 
 # npfda: Nonparametric functional data analysis
 
-### Version 0.1.3
+### Version 0.1.4
 
 This package implements nonparametric methods for inference on
 (multidimensional) functional data using the tools available in package
@@ -19,9 +19,8 @@ This package implements nonparametric methods for inference on
 Nonparametric methods for inference on the functional trend, the
 functional variance and the variogram:
 
-- `npf.fit()` (NOT YET IMPLEMENTED) (automatically) fits a nonparametric
-  functional model by estimating the trend, the conditional variance and
-  the variogram.
+- `npf.fit()` (automatically) fits a nonparametric functional model by
+  estimating the trend, the conditional variance and the variogram.
 
 - `locpol()`, `np.var()` and `np.svar()` methods use local polynomial
   kernel smoothing to compute nonparametric estimates of the functional

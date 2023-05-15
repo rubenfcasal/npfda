@@ -56,6 +56,7 @@ npf.binning <- function(x){
 #'
 #' Estimates the functional mean (and its first derivatives)
 #' using local polynomial kernel smoothing.
+#' @rdname locpol.npf
 #' @aliases npf.locpol-class npf.locpol
 #' @param  x 	an object (of class [`npf.data`] or [`npf.bin`]) used to select a method.
 #' @param  ... 	further arguments passed to or from other methods.
@@ -95,7 +96,7 @@ locpol.npf.data <- function(x, h = NULL, degree = 1 + as.numeric(drv), drv = FAL
 }
 
 
-#' @rdname locpol.npf.data
+#' @rdname locpol.npf
 #' @method locpol npf.bin
 #' @export
 #····································································
@@ -109,7 +110,7 @@ locpol.npf.bin <- function(x, h = NULL, degree = 1 + as.numeric(drv), drv = FALS
 }
 
 
-#' @rdname locpol.npf.data
+#' @rdname locpol.npf
 #' @method predict npf.locpol
 #' @param object object used to select a method.
 #' @param newx vector with the (irregular) points to predict (interpolate).
@@ -118,10 +119,54 @@ locpol.npf.bin <- function(x, h = NULL, degree = 1 + as.numeric(drv), drv = FALS
 #' (otherwise `npsp::interp.data.grid` is called).
 #' @export
 predict.npf.locpol <- function(object, newx = NULL, ...) {
-  #····································································
+#····································································
   if (!is.null(newx)) {
     return(npsp::interp(object, data.ind = 'est', newx = newx, ...))
   } else return(object$est)
 }
 
 
+#' @rdname locpol.npf
+#' @method residuals npf.locpol
+#' @param var (optional) a vector or an object of class [`npf.var`] with the estimated (or
+#' theoretical) variances.
+#' @param as.npf.data logical; if `TRUE` (default) returns a `npf.data`-class
+#' object containing the residuals.
+#' @return `residuals.npf.locpol` returns the residuals, standardized if `var`
+#' is not missing, and as a `npf.data`-class object if `as.npf.data = TRUE`.
+#' @export
+residuals.npf.locpol <- function(object, var, as.npf.data = TRUE, ...) {
+#····································································
+  y <- object$data$y - object$est
+  if(!missing(var)){
+    if(inherits(var, "npf.var")) var <- var$est
+    y <- y/sqrt(var)
+  }
+  if(as.npf.data) {
+    result <- object$data
+    result$y <- y
+  } else
+    result <- y
+  return(result)
+}
+
+
+#' @rdname locpol.npf
+#' @inheritParams plot.npf.data
+#' @param y (optional) a vector or an object of class [`npf.var`] with the estimated (or
+#' theoretical) variances.
+#' @param main plot title.
+#' @param ... additional graphical parameters (passed to [`plot.npf.data`]).
+#' @method plot npf.locpol
+#' @export
+plot.npf.locpol <- function(x, y = NULL, main = deparse(substitute(x)),
+                            col = "lightgray", legend = FALSE, ...){
+#····································································
+  plot(x$data, main = main, col = "lightgray", legend = FALSE, ...)
+  # plot(data, main = main, col = col, legend = legend, ...)
+  lines(x$data$x, x$est)
+  if(!is.null(y)){
+    var <- if(inherits(y, "npf.var")) y$est else y
+    matlines(x$data$x, x$est + sqrt(var) %o% c(-1, 1), col = 1, lty = 2)
+  }
+}

@@ -6,6 +6,8 @@
 \alias{npf.locpol}
 \alias{locpol.npf.bin}
 \alias{predict.npf.locpol}
+\alias{residuals.npf.locpol}
+\alias{plot.npf.locpol}
 \title{Local polynomial trend estimation}
 \usage{
 \method{locpol}{npf.data}(
@@ -29,6 +31,17 @@
 )
 
 \method{predict}{npf.locpol}(object, newx = NULL, ...)
+
+\method{residuals}{npf.locpol}(object, var, as.npf.data = TRUE, ...)
+
+\method{plot}{npf.locpol}(
+  x,
+  y = NULL,
+  main = deparse(substitute(x)),
+  col = "lightgray",
+  legend = FALSE,
+  ...
+)
 }
 \arguments{
 \item{x}{an object (of class \code{\link{npf.data}} or \code{\link{npf.bin}}) used to select a method.}
@@ -46,11 +59,30 @@ only the upper triangular part of h is used).}
 Defaults to 0 (the full data is used) and it is not normally changed by the user
 in this setting. See "Details" below.}
 
-\item{...}{further arguments passed to or from other methods.}
+\item{...}{additional graphical parameters (passed to \code{\link{plot.npf.data}}).}
 
 \item{object}{object used to select a method.}
 
 \item{newx}{vector with the (irregular) points to predict (interpolate).}
+
+\item{var}{(optional) a vector or an object of class \code{\link{npf.var}} with the estimated (or
+theoretical) variances.}
+
+\item{as.npf.data}{logical; if \code{TRUE} (default) returns a \code{npf.data}-class
+object containing the residuals.}
+
+\item{y}{(optional) a vector or an object of class \code{\link{npf.var}} with the estimated (or
+theoretical) variances.}
+
+\item{main}{plot title.}
+
+\item{col}{color table used to set up the color scale (see \code{\link{image}} for
+details).}
+
+\item{legend}{logical; if \code{TRUE} (default), the plotting region is splitted into two parts,
+drawing the main plot in one and the legend with the color scale in the other.
+If \code{FALSE} only the (coloured) main plot is drawn and the arguments related
+to the legend are ignored (\code{\link[npsp:splot]{npsp::splot()}} is not called).}
 }
 \value{
 \code{locpol.npf.data} and  \code{locpol.npf.bin} return an S3 object of class
@@ -59,6 +91,9 @@ in this setting. See "Details" below.}
 If \code{newx == NULL}, \code{predict.npf.locpol} returns the trend estimates
 corresponding to the discretization points
 (otherwise \code{npsp::interp.data.grid} is called).
+
+\code{residuals.npf.locpol} returns the residuals, standardized if \code{var}
+is not missing, and as a \code{npf.data}-class object if \code{as.npf.data = TRUE}.
 }
 \description{
 Estimates the functional mean (and its first derivatives)
