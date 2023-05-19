@@ -20,9 +20,8 @@
 #' @param  lp local polynomial estimate of the functional variance (object of
 #' class [`npf.var`]).
 #' @param  svm fitted variogram model (object of class [`npsp::fitsvar`]).
-#' @return Returns an object of class `npf.model`
-#' (extending [`npf.locpol`]), the `lp` argument with
-#' the others as additional components.
+#' @return Returns an object of class `npf.model` (extending [`npf.locpol`]),
+#' the `lp` argument with the others as additional components.
 #' @seealso [`npf.fit`], [`npf.locpol`], [`npf.var`], [`npsp::fitsvar.sb.iso`].
 #' @export
 npf.model <- function(lp, var, svm) {
