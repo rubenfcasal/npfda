@@ -7,9 +7,11 @@ Authors@R: c(
     person("Ruben", "Fernandez-Casal", , "rubenfcasal@gmail.com", 
     role = c("aut", "cre"), comment = c(ORCID = "0000-0002-5785-3739")),
     person("Sergio", "Castillo-Paez", role = c("aut"),
-    email = "sacastillo@espe.edu.ec"),
+    email = "sacastillo@espe.edu.ec", 
+    comment = c(ORCID = "0000-0002-5402-2462")),
     person("Miguel", "Flores", role = c("aut"),
-    email = "miguel.flores@epn.edu.ec"),
+    email = "miguel.flores@epn.edu.ec", 
+    comment = c(ORCID = "0000-0002-7742-1247")),
     person("Manuel", "Oviedo de la Fuente", role = c("ctb"),
     email = "manuel.oviedo@udc.es")
     )
