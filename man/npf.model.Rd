@@ -45,9 +45,8 @@ Typically an output of \code{\link{npf.fit}}.}
 \item{main.svar}{title for the semivariogram plot.}
 }
 \value{
-Returns an object of \code{\link{class}} \code{npf.model}
-(extending \code{\link{npf.locpol}}), the \code{lp} argument with
-the others as additional components.
+Returns an object of class \code{npf.model} (extending \code{\link{npf.locpol}}),
+the \code{lp} argument with the others as additional components.
 }
 \description{
 Defines a nonparametric functional model.

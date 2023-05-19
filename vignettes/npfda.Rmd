@@ -1,6 +1,9 @@
 ---
 title: 'Introduction to the npfda Package'
-author: 'Ruben Fernandez-Casal (ruben.fcasal@udc.es)'
+author:
+- 'Rubén Fernández-Casal (ruben.fcasal@udc.es)'
+- 'Sergio Castillo-Páez (sacastillo@espe.edu.ec)'
+- 'Miguel Flores (miguel.flores@epn.edu.ec)'
 date: '`r paste("npfda", packageVersion("npfda"))`'
 output: 
   html_document:
@@ -19,7 +22,6 @@ vignette: >
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache = FALSE, fig.height=5, fig.width=7, 
                       fig.align = 'center', out.width = '100%')
-# knitr::spin("npsp_intro2.R", knit = FALSE)
 ```
 
 This vignette (a working draft) tries to illustrate the use of the `npfda` (Nonparametric functional data analysis) package. 
@@ -36,7 +38,6 @@ The `ozone` data set, supplied with the `npfda` package, will be used in the exa
 The data consist of daily averages of ozone concentration (microgram per cubic meter) recorded over the period from 1988 to 2020 at the Yarner Wood AURN monitoring site in the UK.
 ```{r }
 fd <- npf.data(ozone, dimnames = "day")
-plot(fd, y = as.numeric(fd$ynames))
 plot(fd, y = as.numeric(fd$ynames), 
      col = hcl.colors(32, palette = "Blue-Red 3", alpha = 0.6))
 ```
@@ -54,7 +55,7 @@ matlines(x, y + sqrt(f.var(fd, mean = y)) %o% c(-1, 1), col = 1, lty = 2)
 
 # Trend estimation
 
-The linear Local trend estimates can be computed using the `locpol()` generic function:
+The linear local trend estimates can be computed using the `locpol()` generic function (S3 methods `locpol.npf.data()` and `locpol.npf.bin()`):
 
 ```{r }
 trend.h <- 36
@@ -195,7 +196,7 @@ np.fit <- npf.model(lp, lp.var, svm)
 
 The iterative procedure for the joint estimation of the trend, the variance and the semivariogram is implemented in `npf.fit()` function:
 
-```{r}
+```{r fig.dim=c(11,6), out.width="100%"}
 np.fit2 <- npf.fit(fd, var.h = 30, maxlag = 100, verbose = TRUE)
 plot(np.fit2)
 ```

@@ -8,7 +8,6 @@ library(npfda)
 
 ## -----------------------------------------------------------------------------
 fd <- npf.data(ozone, dimnames = "day")
-plot(fd, y = as.numeric(fd$ynames))
 plot(fd, y = as.numeric(fd$ynames), 
      col = hcl.colors(32, palette = "Blue-Red 3", alpha = 0.6))
 

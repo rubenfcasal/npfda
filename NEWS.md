@@ -3,6 +3,8 @@
 * Added S3 generic `npf.fit()` (with methods for `npf.data` 
   and `npf.locpol` classes).
   
+* Updated package vignette.  
+  
 
 # npfda 0.1-3 (2023-05-12) 
 
