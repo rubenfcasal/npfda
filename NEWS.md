@@ -4,7 +4,9 @@
   and `npf.locpol` classes).
   
 * Updated package vignette.  
-  
+
+* Added pkgdown function reference index.  
+
 
 # npfda 0.1-3 (2023-05-12) 
 

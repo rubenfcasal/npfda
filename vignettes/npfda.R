@@ -1,7 +1,6 @@
 ## ----setup, include=FALSE-----------------------------------------------------
 knitr::opts_chunk$set(cache = FALSE, fig.height=5, fig.width=7, 
                       fig.align = 'center', out.width = '100%')
-# knitr::spin("npsp_intro2.R", knit = FALSE)
 
 ## -----------------------------------------------------------------------------
 library(npfda)
@@ -94,7 +93,7 @@ error.var.h
 ## -----------------------------------------------------------------------------
 np.fit <- npf.model(lp, lp.var, svm)
 
-## -----------------------------------------------------------------------------
+## ----fig.dim=c(11,6), out.width="100%"----------------------------------------
 np.fit2 <- npf.fit(fd, var.h = 30, maxlag = 100, verbose = TRUE)
 plot(np.fit2)
 

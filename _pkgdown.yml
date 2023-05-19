@@ -9,3 +9,53 @@ news:
 
 deploy:
   install_metadata: true
+
+reference:
+  - title: "Local polinomial estimation"
+    desc: >
+      Nonparametric estimation of a mean function (the functional trend), a functional variance or a semivariogram.
+    contents:
+      - npfda-package
+      - npf.model
+      - npf.fit
+      - locpol.npf.data
+      - locpol.npf.bin
+      - np.var
+      - np.svar.npf.data
+      - np.svar.npf.locpol
+  - title: "Bandwidth selection"
+    desc: "Cross-validation methods for bandwidth selection in local polynomial kernel smoothing."
+    contents:
+      - h.cv.npf.bin
+      - h.cv.npf.bin.res2
+  - title: "Binning"
+    desc: "Methods for multidimensional binning."
+    contents:
+      - npf.binning
+      - npf.bin.res2
+      - svar.bin.npf.data
+      - svar.bin.npf.locpol
+  - title: "Functional data"
+    desc: "S3 class `npf.data` and methods."
+    contents:
+      - npf.data
+      - f.mean
+      - f.var
+      - coords.npf.data
+      - plot.npf.data
+  - title: "Data sets"
+    desc: "Data sets included in the package."
+    contents:
+      - ozone
+  - title: "Other packages"
+    desc: "Utilities to interact with other packages."
+    contents:
+      - as.fds
+  - title: "Utilities"
+    desc: "Other utilities..."
+    contents:
+      - residuals.npf.locpol
+      - plot.npf.locpol
+      - predict.npf.var
+      - residuals.npf.model
+      - plot.npf.model
