@@ -18,8 +18,9 @@
 #' @aliases svar.bin.npf
 # @inheritParams npsp::svar.bin
 #' @param  x 	object used to select a method.
-#' @param  maxlag maximum lag. Defaults to `(nlags - 1) * minlag`.
-#' @param  nlags number of lags. Defaults to `round(0.55 * x$grid$n)`.
+#' @param  maxlag maximum lag. Defaults to `nlags * minlag`.
+#' @param  nlags number of lags. Defaults to `round(0.55 * x$grid$n)` if `maxlag`
+#' is not specified and to `round(maxlag/minlag)` otherwise.
 #' @param  minlag minimun lag. Defaults to that of the discretization grid.
 #' @param  ... 	further arguments passed to [`npsp::svariso`].
 #' @param estimator character, estimator name (e.g. `"classical"`).
@@ -45,17 +46,28 @@ svar.bin.npf.data <- function(x, maxlag = NULL, nlags = round(0.55 * x$grid$n),
     if (!missing(nlags) ) {
       warning("argument 'maxlag' ignored (set to default value)")
       maxlag <- NULL
-    } else nlags <- round(maxlag/minlag) + 1
+    } else nlags <- round(maxlag/minlag)
   }
-  if(is.null(maxlag)) maxlag <- (nlags - 1) * minlag   # 55% of largest lag by default
+  if(is.null(maxlag)) maxlag <- nlags * minlag   # 55% of largest lag by default
+  # Compute the binned sample variogram of each curve
   coord <- coords(x)
-  result <- apply(x$y, 2,
-                  function(y) svariso(coord, y, maxlag = maxlag, nlags = nlags, estimator = estimator, ...))
-  bin.sv <- sapply(result, function(x) x$biny)
-  bin.w <- sapply(result, function(x) x$binw)
+  svarcurve <- function(y) {
+    ok <- !is.na(y)
+    svariso(coord[ok], y[ok], maxlag = maxlag, nlags = nlags, minlag = minlag,
+            estimator = estimator)
+  }
+  result <- apply(x$y, 2, svarcurve)
+  # Combine the sample variograms
+  mbiny <- sapply(result, function(x) x$biny)
+  mbinw <- sapply(result, function(x) x$binw)
+  binw <- rowSums(mbinw)
+  # biny <- rowMeans(mbiny, na.rm = TRUE)
+  biny <- rowSums(mbiny*mbinw/binw, na.rm = TRUE) # weighted mean
+  is.na(biny) <- binw == 0      # biny[binw == 0] <- NA
+  # Build the svar.bin result
   result <- result[[1]]
-  result$biny <- rowMeans(bin.sv)
-  result$binw <- rowSums(bin.w)
+  result$biny <- biny
+  result$binw <- binw
   # PENDENTE: Revisar uso result$data
   result$data <- x
   result$data$x <- coord
