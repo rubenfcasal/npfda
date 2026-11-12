@@ -27,4 +27,7 @@ at 365 discretization points.
 fd.ozone <- npf.data(ozone, dimnames = "day")
 plot(fd.ozone)
 }
+\seealso{
+\link{ozone2}, \code{\link[=npf.data]{npf.data()}}
+}
 \keyword{datasets}

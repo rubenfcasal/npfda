@@ -9,7 +9,7 @@
 \usage{
 npf.model(lp, var, svm)
 
-\method{residuals}{npf.model}(object, as.npf.data = TRUE, ...)
+\method{residuals}{npf.model}(object, standardized = TRUE, as.npf.data = TRUE, ...)
 
 \method{plot}{npf.model}(
   x,
@@ -26,9 +26,11 @@ class \code{\link{npf.var}}).}
 \item{var}{(optional) a vector or an object of class \code{\link{npf.var}} with the estimated (or
 theoretical) variances.}
 
-\item{svm}{fitted variogram model (object of class \code{\link[npsp:fitsvar.sb.iso]{npsp::fitsvar}}).}
+\item{svm}{fitted variogram model (object of class \code{\link[npsp:fitsvar]{npsp::fitsvar}}).}
 
 \item{object}{object used to select a method.}
+
+\item{standardized}{logical; if \code{TRUE} (default) returns the standardized residuals.}
 
 \item{as.npf.data}{logical; if \code{TRUE} (default) returns a \code{npf.data}-class
 object containing the residuals.}

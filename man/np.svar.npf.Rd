@@ -38,9 +38,10 @@
 \item{h}{(full) bandwidth matrix (controls the degree of smoothing;
 only the upper triangular part of h is used).}
 
-\item{maxlag}{maximum lag. Defaults to \code{(nlags - 1) * minlag}.}
+\item{maxlag}{maximum lag. Defaults to \code{nlags * minlag}.}
 
-\item{nlags}{number of lags. Defaults to \code{round(0.55 * x$grid$n)}.}
+\item{nlags}{number of lags. Defaults to \code{round(0.55 * x$grid$n)} if \code{maxlag}
+is not specified and to \code{round(maxlag/minlag)} otherwise.}
 
 \item{minlag}{minimun lag. Defaults to that of the discretization grid.}
 
@@ -54,7 +55,7 @@ only the upper triangular part of h is used).}
 Defaults to 0 (the full data is used) and it is not normally changed by the user
 in this setting. See "Details" below.}
 
-\item{...}{further arguments passed to \code{\link[npsp:svar.bin]{npsp::svariso}}.}
+\item{...}{further arguments passed to \code{\link[npsp:svariso]{npsp::svariso}}.}
 
 \item{var}{(optional) a vector or an object of class \code{\link{npf.var}} with the estimated (or
 theoretical) variances.}

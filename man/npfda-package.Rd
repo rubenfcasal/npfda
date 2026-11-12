@@ -7,8 +7,8 @@
 \title{npfda: Nonparametric functional data analysis}
 \description{
 This package implements nonparametric methods for inference
-on (multidimensional) functional data using the tools available in package
-\href{https://rubenfcasal.github.io/npsp}{\code{npsp}}.
+on multidimensional functional data (using the tools available in package
+\href{https://rubenfcasal.github.io/npsp}{\code{npsp}}).
 }
 \details{
 For more information visit \url{https://rubenfcasal.github.io/npfda.html}.
@@ -20,6 +20,31 @@ R package version 0.7-11, \url{https://rubenfcasal.github.io/npsp}.
 Fernández-Casal R., Castillo-Páez S. and García-Soidán P. (2017), Nonparametric
 estimation of the small-scale variability of heteroscedastic spatial processes,
 \emph{Spa. Sta.}, \strong{22}, 358-370, \href{https://doi.org/10.1016/j.spasta.2017.04.001}{DOI}.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://rubenfcasal.github.io/npfda}
+  \item \url{https://github.com/rubenfcasal/npfda}
+  \item Report bugs at \url{https://github.com/rubenfcasal/npfda/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Ruben Fernandez-Casal \email{rubenfcasal@gmail.com} (\href{https://orcid.org/0000-0002-5785-3739}{ORCID})
+
+Authors:
+\itemize{
+  \item Ruben Fernandez-Casal \email{rubenfcasal@gmail.com} (\href{https://orcid.org/0000-0002-5785-3739}{ORCID})
+  \item Manuel Oviedo de la Fuente \email{manuel.oviedo@udc.es} (\href{https://orcid.org/0000-0001-7360-3249}{ORCID})
+}
+
+Other contributors:
+\itemize{
+  \item Sergio Castillo-Paez \email{sacastillo@espe.edu.ec} (\href{https://orcid.org/0000-0002-5402-2462}{ORCID}) [contributor]
+  \item Miguel Flores \email{miguel.flores@epn.edu.ec} (\href{https://orcid.org/0000-0002-7742-1247}{ORCID}) [contributor]
+}
+
 }
 \keyword{Monte-Carlo}
 \keyword{bootstrap}

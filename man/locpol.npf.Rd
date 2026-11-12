@@ -86,14 +86,14 @@ to the legend are ignored (\code{\link[npsp:splot]{npsp::splot()}} is not called
 }
 \value{
 \code{locpol.npf.data} and  \code{locpol.npf.bin} return an S3 object of class
-\code{npf.locpol} extending \code{\link[npsp:locpol]{npsp::locpol.bin}} (locpol + bin data + grid par.).
+\code{npf.locpol} extending \code{\link[npsp:locpol.bin]{npsp::locpol.bin}} (locpol + bin data + grid par.).
 
 If \code{newx == NULL}, \code{predict.npf.locpol} returns the trend estimates
 corresponding to the discretization points
 (otherwise \code{npsp::interp.data.grid} is called).
 
-\code{residuals.npf.locpol} returns the residuals, standardized if \code{var}
-is not missing, and as a \code{npf.data}-class object if \code{as.npf.data = TRUE}.
+\code{residuals.npf.locpol} returns the residuals, standardized if \code{var} is
+not missing, and as a \code{npf.data}-class object if \code{as.npf.data = TRUE}.
 }
 \description{
 Estimates the functional mean (and its first derivatives)
@@ -122,5 +122,5 @@ lines(lp$data$x, lp$biny, lty = 2)
 lines(lp$data$x, lp$est)
 }
 \seealso{
-\code{\link[npsp:locpol]{npsp::locpol.bin}}, \code{\link{npf.bin}}
+\code{\link[npsp:locpol.bin]{npsp::locpol.bin}}, \code{\link{npf.bin}}
 }

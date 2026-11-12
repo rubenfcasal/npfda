@@ -28,16 +28,17 @@
 \arguments{
 \item{x}{object used to select a method.}
 
-\item{maxlag}{maximum lag. Defaults to \code{(nlags - 1) * minlag}.}
+\item{maxlag}{maximum lag. Defaults to \code{nlags * minlag}.}
 
-\item{nlags}{number of lags. Defaults to \code{round(0.55 * x$grid$n)}.}
+\item{nlags}{number of lags. Defaults to \code{round(0.55 * x$grid$n)} if \code{maxlag}
+is not specified and to \code{round(maxlag/minlag)} otherwise.}
 
 \item{minlag}{minimun lag. Defaults to that of the discretization grid.}
 
 \item{estimator}{character, estimator name (e.g. \code{"classical"}).
 See \code{\link[npsp:svar.bin]{npsp::svar.bin}}.}
 
-\item{...}{further arguments passed to \code{\link[npsp:svar.bin]{npsp::svariso}}.}
+\item{...}{further arguments passed to \code{\link[npsp:svariso]{npsp::svariso}}.}
 
 \item{var}{(optional) a vector or an object of class \code{\link{npf.var}} with the estimated (or
 theoretical) variances.}

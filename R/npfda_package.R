@@ -15,14 +15,13 @@
 #' npfda: Nonparametric functional data analysis
 #'
 #' This package implements nonparametric methods for inference
-#' on (multidimensional) functional data using the tools available in package
-#' [`npsp`](https://rubenfcasal.github.io/npsp).
+#' on multidimensional functional data (using the tools available in package
+#' [`npsp`](https://rubenfcasal.github.io/npsp)).
 #'
 #' For more information visit <https://rubenfcasal.github.io/npfda.html>.
 #' @keywords nonparametric spatial bootstrap Monte-Carlo
 #' @name npfda-package
 #' @aliases npfda
-#' @docType package
 #' @import npsp
 #' @import graphics
 #' @import stats
@@ -34,7 +33,8 @@
 #' Fernández-Casal R., Castillo-Páez S. and García-Soidán P. (2017), Nonparametric
 #' estimation of the small-scale variability of heteroscedastic spatial processes,
 #' *Spa. Sta.*, **22**, 358-370, [DOI](https://doi.org/10.1016/j.spasta.2017.04.001).
-NULL
+# @docType package
+"_PACKAGE"
 
 
 #····································································
@@ -58,6 +58,7 @@ NULL
 #' @docType data
 #' @format A matrix with 365 rows (days) and 33 columns (years).
 #' @keywords datasets
+#' @seealso [ozone2], [npf.data()]
 #' @examples
 #' fd.ozone <- npf.data(ozone, dimnames = "day")
 #' plot(fd.ozone)
@@ -69,9 +70,35 @@ NULL
 # usethis::use_data(ozone)
 
 
-#--------------------------------------------------------------------
+#' Ground-level ozone raw data
+#'
+#' Daily averages of ozone concentration (microgram per cubic meter) recorded over
+#' the period from 1988 to 2025 at the Yarner Wood [AURN](https://uk-air.defra.gov.uk/networks/network-info?view=aurn)
+#' monitoring site in the UK.
+#'
+#' It is assumed that the observations corresponding to each year are (partial)
+#' realizations of a functional process, so the data consist of 38 curves observed
+#' at 365 discretization points.
+#' @source
+#' The UK Automatic Urban and Rural Network ([AURN](https://uk-air.defra.gov.uk/networks/network-info?view=aurn)).
+#' The data were downloaded from \url{https://uk-air.defra.gov.uk/data}.
+#' @name ozone2
+#' @docType data
+#' @format A matrix with 365 rows (days) and 38 columns (years).
+#' @keywords datasets
+#' @seealso [ozone], [npf.data()]
+#' @examples
+#' # Number of missing observations per year
+#' apply(ozone2, 2, function(x) sum(is.na(x)))
+#' # Create a multidimensional functional data set
+#' fd <- npf.data(ozone2, dimnames = "day")
+#' plot(fd)
+NULL
+
+
+#····································································
 .onAttach <- function(libname, pkgname){
-  #--------------------------------------------------------------------
+#····································································
   #   pkg.info <- utils::packageDescription(pkgname, libname, fields = c("Title", "Version", "Date"))
   pkg.info <- drop( read.dcf( file = system.file("DESCRIPTION", package = "npfda"),
                               fields = c("Title", "Version", "Date") ))

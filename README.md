@@ -6,7 +6,7 @@ Please edit that file
 
 # npfda: Nonparametric functional data analysis
 
-### Version 0.1.4
+### Version 0.2.1
 
 This package implements nonparametric methods for inference on
 (multidimensional) functional data using the tools available in package
@@ -43,10 +43,8 @@ remotes::install_github("rubenfcasal/npfda")
 
 <!-- 
 Note also that, as this package requires compilation, Windows users need to have previously installed the appropriate version of [Rtools](https://cran.r-project.org/bin/windows/Rtools/), and OS X users need to have installed [Xcode](https://apps.apple.com/us/app/xcode/id497799835).
-
-Alternatively, Windows users may install the corresponding *npfda_X.Y.Z.zip* file in the [releases section](https://github.com/rubenfcasal/npfda/releases/latest) of the github repository.
-
-For R versions 4.2.x under Windows: 
+&#10;Alternatively, Windows users may install the corresponding *npfda_X.Y.Z.zip* file in the [releases section](https://github.com/rubenfcasal/npfda/releases/latest) of the github repository.
+&#10;For R versions 4.2.x under Windows: 
 ``` r
 install.packages('https://github.com/rubenfcasal/npfda/releases/download/v0.1-1/npfda_0.1-1.zip',
                  repos = NULL)

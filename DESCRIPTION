@@ -1,19 +1,21 @@
 Package: npfda
 Type: Package
 Title: Nonparametric functional data analysis
-Version: 0.1.4
-Date: 2023-05-15
+Version: 0.2.0
+Date: 2025-06-11
 Authors@R: c(
-    person("Ruben", "Fernandez-Casal", , "rubenfcasal@gmail.com", 
-    role = c("aut", "cre"), comment = c(ORCID = "0000-0002-5785-3739")),
-    person("Sergio", "Castillo-Paez", role = c("aut"),
-    email = "sacastillo@espe.edu.ec", 
+    person("Ruben", "Fernandez-Casal", 
+    email = "rubenfcasal@gmail.com", role = c("aut", "cre"), 
+    comment = c(ORCID = "0000-0002-5785-3739")),
+    person("Manuel", "Oviedo de la Fuente", 
+    email = "manuel.oviedo@udc.es", role = c("aut"),
+    comment = c(ORCID = "0000-0001-7360-3249")),
+    person("Sergio", "Castillo-Paez", 
+    email = "sacastillo@espe.edu.ec", role = c("ctb"), 
     comment = c(ORCID = "0000-0002-5402-2462")),
-    person("Miguel", "Flores", role = c("aut"),
-    email = "miguel.flores@epn.edu.ec", 
-    comment = c(ORCID = "0000-0002-7742-1247")),
-    person("Manuel", "Oviedo de la Fuente", role = c("ctb"),
-    email = "manuel.oviedo@udc.es")
+    person("Miguel", "Flores", 
+    email = "miguel.flores@epn.edu.ec", role = c("ctb"), 
+    comment = c(ORCID = "0000-0002-7742-1247"))
     )
 Maintainer: Ruben Fernandez-Casal <rubenfcasal@gmail.com>
 Depends:
@@ -25,9 +27,8 @@ Suggests:
     rainbow,
     rmarkdown,
     knitr
-Description: This package implements nonparametric methods for inference 
-    on (multidimensional) functional data using the tools available in package 
-    npsp <https://rubenfcasal.github.io/npsp>.
+Description: Nonparametric methods for inference on multidimensional functional 
+    data (using the tools available in package npsp <https://rubenfcasal.github.io/npsp>).
 License: GPL (>= 2)
 URL: https://rubenfcasal.github.io/npfda, https://github.com/rubenfcasal/npfda
 BugReports: https://github.com/rubenfcasal/npfda/issues
@@ -35,4 +36,4 @@ Encoding: UTF-8
 LazyData: true
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+Config/roxygen2/version: 8.0.0

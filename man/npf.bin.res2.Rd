@@ -12,7 +12,7 @@ npf.bin.res2(x)
 }
 \value{
 Returns an S3 object of class \code{npf.bin.res2} extending
-\code{\link[npsp:binning]{npsp::bin.data}} (bin data + grid par.).
+\code{\link[npsp:bin.data]{npsp::bin.data}} (bin data + grid par.).
 }
 \description{
 Aggregates the squared residuals of a local polynomial kernel smoothing

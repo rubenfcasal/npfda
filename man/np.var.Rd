@@ -56,7 +56,7 @@ in this setting. See "Details" below.}
 \item{newx}{vector with the (irregular) points to predict (interpolate).}
 }
 \value{
-Returns an S3 object of class \code{npf.var} extending \code{\link[npsp:locpol]{npsp::locpol.bin}}
+Returns an S3 object of class \code{npf.var} extending \code{\link[npsp:locpol.bin]{npsp::locpol.bin}}
 (locpol + bin data + grid par.).
 
 If \code{newx == NULL}, \code{predict.npf.var} returns the variance estimates

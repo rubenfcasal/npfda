@@ -13,7 +13,7 @@ npf.binning(x)
 }
 \value{
 Returns an S3 object of class \code{npf.bin} extending
-\code{\link[npsp:binning]{npsp::bin.data}} (bin data + grid par.).
+\code{\link[npsp:bin.data]{npsp::bin.data}} (bin data + grid par.).
 }
 \description{
 Aggregates the functional data into the regular grid of discretization points,
@@ -26,5 +26,5 @@ plot(fd, col = "lightgray", legend = FALSE)
 with(bin, lines(data$x, biny))
 }
 \seealso{
-\code{\link[npsp:binning]{npsp::bin.data}}, \code{\link{locpol.npf.bin}}
+\code{\link[npsp:bin.data]{npsp::bin.data}}, \code{\link{locpol.npf.bin}}
 }

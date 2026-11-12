@@ -1,3 +1,24 @@
+# npfda 0.2-1 (2026-11-12)
+
+
+
+
+# npfda 0.2-0 (2025-06-11) 
+
+* Added `ozone2` data (updated raw data with missing values).
+
+* Changes in `svar.bin()` S3-methods:
+
+    - Changes in `svar.bin.npf.data()` to support missing data.
+
+    - Changed the default value of the `maxlag` argument.
+
+    - Changed the default value of the `nlags` argument when the `maxlag` 
+      argument is specified.
+      
+* Added `standardized` argument to `residuals.npf.model()` method.
+
+
 # npfda 0.1-4 (2023-05-15) 
 
 * Added S3 generic `npf.fit()` (with methods for `npf.data` 

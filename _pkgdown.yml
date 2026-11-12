@@ -47,6 +47,7 @@ reference:
     desc: "Data sets included in the package."
     contents:
       - ozone
+      - ozone2
   - title: "Other packages"
     desc: "Utilities to interact with other packages."
     contents:
