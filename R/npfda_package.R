@@ -26,6 +26,8 @@
 #' @import graphics
 #' @import stats
 #' @importFrom grDevices rainbow
+# @importFrom fda.usc fdata
+# @importFrom rainbow fds
 #' @references
 #' Fernández-Casal R. (2023) npsp: Nonparametric spatial (geo)statistics.
 #' R package version 0.7-11, <https://rubenfcasal.github.io/npsp>.

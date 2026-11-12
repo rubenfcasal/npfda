@@ -1,8 +1,11 @@
 # npfda 0.2-1 (2026-11-12)
 
+* Added S3 generic `as.npf.data()`, with methods for `array` 
+  and `fdata` classes.
 
-
-
+* Added S3 generic `as.fdata()`, with a method for `npf.data` class.
+  
+  
 # npfda 0.2-0 (2025-06-11) 
 
 * Added `ozone2` data (updated raw data with missing values).

@@ -51,6 +51,7 @@ reference:
   - title: "Other packages"
     desc: "Utilities to interact with other packages."
     contents:
+      - as.fdata
       - as.fds
   - title: "Utilities"
     desc: "Other utilities..."

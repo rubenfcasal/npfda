@@ -17,7 +17,7 @@
 theoretical) variances.}
 
 \item{cor}{(optional) intra-curve correlation matrix or semivariogram model
-(\code{\link{svarmod}}-class) of the data. Defaults to the identity matrix.}
+(\code{\link[npsp]{svarmod}}-class) of the data. Defaults to the identity matrix.}
 
 \item{...}{further arguments passed to \code{\link[npsp:h.cv]{npsp::h.cv}}.}
 }
