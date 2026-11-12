@@ -1,9 +1,9 @@
 ---
 title: 'Introduction to the npfda Package'
-author:
-- 'Rubén Fernández-Casal (ruben.fcasal@udc.es)'
-- 'Sergio Castillo-Páez (sacastillo@espe.edu.ec)'
-- 'Miguel Flores (miguel.flores@epn.edu.ec)'
+# author:
+# - 'Rubén Fernández-Casal (ruben.fcasal@udc.es)'
+# - 'Sergio Castillo-Páez (sacastillo@espe.edu.ec)'
+# - 'Miguel Flores (miguel.flores@epn.edu.ec)'
 date: '`r paste("npfda", packageVersion("npfda"))`'
 output: 
   html_document:

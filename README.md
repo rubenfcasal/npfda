@@ -9,8 +9,8 @@ Please edit that file
 ### Version 0.2.1
 
 This package implements nonparametric methods for inference on
-(multidimensional) functional data using the tools available in package
-[`npsp`](https://rubenfcasal.github.io/npsp).
+multidimensional functional data (using the tools available in package
+[`npsp`](https://rubenfcasal.github.io/npsp)).
 
 ## Main functions
 
@@ -56,24 +56,25 @@ install.packages('https://github.com/rubenfcasal/npfda/releases/download/v0.1-1/
 - [Rubén Fernández-Casal](https://rubenfcasal.github.io) (Dep.
   Mathematics, University of A Coruña, Spain).
 
-- Sergio Castillo-Páez (Universidad de las Fuerzas Armadas ESPE,
-  Ecuador).
+- Manuel Oviedo de la Fuente (Dep. Mathematics, University of A Coruña,
+  Spain).
 
-- Miguel Flores (Faculty of Administrative Sciences, Escuela Politécnica
-  Nacional, Ecuador).
+<!-- 
+* Sergio Castillo-Páez (Universidad de las Fuerzas Armadas ESPE, Ecuador).
+&#10;* Miguel Flores (Faculty of Administrative Sciences, Escuela Politécnica Nacional, Ecuador).
+-->
 
 Please send comments, error reports or suggestions to
 <rubenfcasal@gmail.com>.
 
 ## Acknowledgments
 
-This research has been supported by MICINN (Grant PID2020-113578RB-I00).
-The research of Rubén Fernández-Casal has been supported by the Xunta de
-Galicia (Grupos de Referencia Competitiva ED431C-2020-14 and Centro de
-Investigación del Sistema Universitario de Galicia ED431G 2019/01). All
-these grants were co-financed by the ERDF. The research of Sergio
-Castillo Páez has been supported by the Universidad de las Fuerzas
-Armadas ESPE, from Ecuador.
+This research has been supported by MCIN/AEI/10.13039/501100011033
+(Grant PID2020-113578RB-I00), Centro de Investigación en Tecnologías de
+la Información y de las Comunicaciones ([CITIC](https://citic.udc.es/))
+and Xunta de Galicia (Grupos de Referencia Competitiva ED431C-2020/14
+and Centro de Investigación del Sistema Universitario de Galicia ED431G
+2019/01). All these grants were co-financed by the ERDF.
 
 ## References
 
