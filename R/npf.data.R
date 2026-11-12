@@ -74,6 +74,36 @@ coords.npf.data <- function(x, ...) {
 
 
 
+#' @rdname npf.data
+#' @description
+#' `as.npf.data()` converts functional data to a `npf.data`-class object.
+#' @param obj a functional data object.
+#' @param ... further arguments passed to `npf.data()`.
+#' @export
+#····································································
+as.npf.data <- function(obj, ...)  {
+  UseMethod("as.npf.data")
+}
+
+
+#' @rdname npf.data
+#' @method as.npf.data default
+#' @export
+as.npf.data.default  <- function(obj, ...)  {
+  # stop("No S3 methods have been defined for this object class.")
+  stop("There is no method available for this object class")
+}
+
+
+# In R 4.0 and later, "matrix"  inherits from "array"
+#' @rdname npf.data
+#' @method as.npf.data array
+#' @export
+as.npf.data.array  <- function(obj, ...)  {
+  npf.data(obj, ...)
+}
+
+
 
 #' Plot functional data
 #'

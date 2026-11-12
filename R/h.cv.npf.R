@@ -18,7 +18,7 @@
 #' @param var (optional) a vector or an object of class [`npf.var`] with the estimated (or
 #' theoretical) variances.
 #' @param cor (optional) intra-curve correlation matrix or semivariogram model
-#' (\code{\link{svarmod}}-class) of the data. Defaults to the identity matrix.
+#' (\code{\link[npsp]{svarmod}}-class) of the data. Defaults to the identity matrix.
 #' @param ... further arguments passed to [`npsp::h.cv`].
 #' @seealso [`npsp::h.cv`], [`npf.binning`], [`npf.bin.res2`]
 #' @method h.cv npf.bin

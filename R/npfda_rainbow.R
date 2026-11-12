@@ -35,5 +35,6 @@ as.fds.npf.data <- function(obj, ...) {
     stop("This method is currently only implemented for onedimensional functional data.")
   y <- obj$y
   colnames(y) <- obj$ynames
-  return(rainbow::fds(coords(obj), y, obj$grid$dimnames, obj$ylabel))
+  return(rainbow::fds(x = coords(obj), y,
+                      xname = obj$grid$dimnames, yname = obj$ylabel))
 }
