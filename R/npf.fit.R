@@ -38,9 +38,11 @@ npf.model <- function(lp, var, svm) {
 #' @rdname npf.model
 #' @inheritParams residuals.npf.locpol
 #' @method residuals npf.model
+#' @param standardized logical; if `TRUE` (default) returns the standardized residuals.
 #' @export
-residuals.npf.model <- function(object, as.npf.data = TRUE, ...) {
+residuals.npf.model <- function(object, standardized = TRUE, as.npf.data = TRUE, ...) {
 #····································································
+  if(!standardized) return(residuals.npf.locpol(object, as.npf.data = as.npf.data))
   if(as.npf.data) return(object$svm$esv$data)
   return(object$svm$esv$data$y)
 }

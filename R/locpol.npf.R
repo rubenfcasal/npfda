@@ -132,8 +132,8 @@ predict.npf.locpol <- function(object, newx = NULL, ...) {
 #' theoretical) variances.
 #' @param as.npf.data logical; if `TRUE` (default) returns a `npf.data`-class
 #' object containing the residuals.
-#' @return `residuals.npf.locpol` returns the residuals, standardized if `var`
-#' is not missing, and as a `npf.data`-class object if `as.npf.data = TRUE`.
+#' @return `residuals.npf.locpol` returns the residuals, standardized if `var` is
+#' not missing, and as a `npf.data`-class object if `as.npf.data = TRUE`.
 #' @export
 residuals.npf.locpol <- function(object, var, as.npf.data = TRUE, ...) {
 #····································································
